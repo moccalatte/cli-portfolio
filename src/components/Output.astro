@@ -1,0 +1,6 @@
+---
+const { id } = Astro.props;
+---
+<section class="command-output" data-cli-section={id} aria-live="polite">
+  <slot />
+</section>

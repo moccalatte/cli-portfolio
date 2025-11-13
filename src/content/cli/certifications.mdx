@@ -1,0 +1,29 @@
+---
+title: 'Certifications & Courses'
+---
+
+<div className="fake-terminal-block">
+  <h2 className="text-cyan uppercase tracking-[0.2em]">certifications / courses</h2>
+  <section className="mt-6 space-y-2">
+    <h3 className="text-magenta">recent certificates</h3>
+    <ul className="list-disc pl-6 text-yellow">
+      <li>Udemy • AI Automation Engineer • 2024</li>
+      <li>Coursera • Systems Thinking for Ops • 2023</li>
+      <li>OnDeck • Workflow Architect Sprint • 2022</li>
+    </ul>
+  </section>
+import CertificateAlbumWrapper from '../../components/cert/CertificateAlbumWrapper.astro'
+
+  <section className="mt-6">
+    <h3 className="text-magenta">certificate album</h3>
+    <CertificateAlbumWrapper
+      certificates={[
+        { url: "https://storage.googleapis.com/myskill-v2-certificates/learning-path-kpIIH7ZvWgW3muNNmC1V/1sNiStLGAbTh0yHU5Iiy-WHEFLRtU3nfpULzmv4CV.pdf", title: "Myskill Learning Path Certificate 1" },
+        { url: "https://storage.googleapis.com/myskill-v2-certificates/learning-path-kpIIH7ZvWgW3muNNmC1V/1sNiStLGAbTh0yHU5Iiy-WHEFLRtU3nfpULzmv4CV.pdf", title: "Myskill Learning Path Certificate 2" },
+        { url: "https://storage.googleapis.com/myskill-v2-certificates/learning-path-kpIIH7ZvWgW3muNNmC1V/1sNiStLGAbTh0yHU5Iiy-WHEFLRtU3nfpULzmv4CV.pdf", title: "Myskill Learning Path Certificate 3" },
+        { url: "https://storage.googleapis.com/myskill-v2-certificates/learning-path-kpIIH7ZvWgW3muNNmC1V/1sNiStLGAbTh0yHU5Iiy-WHEFLRtU3nfpULzmv4CV.pdf", title: "Myskill Learning Path Certificate 4" }
+      ]}
+    />
+    <p className="text-sm mt-2 text-cyan italic text-center">"Credentials are not just badges—they are milestones on the journey of relentless learning."</p>
+  </section>
+</div>

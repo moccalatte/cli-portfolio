@@ -1,0 +1,73 @@
+---
+import Prompt from './Prompt.astro';
+import Output from './Output.astro';
+import About from '../content/cli/about.mdx';
+import Projects from '../content/cli/projects.mdx';
+import Skills from '../content/cli/skills.mdx';
+import Experience from '../content/cli/experience.mdx';
+import Education from '../content/cli/education.mdx';
+import Contact from '../content/cli/contact.mdx';
+import Certifications from '../content/cli/certifications.mdx';
+
+const commands = [
+  { id: 'about', label: 'about', component: About },
+  { id: 'projects', label: 'projects', component: Projects },
+  { id: 'skills', label: 'skills', component: Skills },
+  { id: 'experience', label: 'experience', component: Experience },
+  { id: 'education', label: 'education', component: Education },
+  { id: 'contact', label: 'contact', component: Contact },
+  { id: 'certifications', label: 'certifications', component: Certifications },
+];
+
+const intro = 'Initializing portfolio interface... type a command or click to explore';
+---
+<div class="terminal-wrapper">
+  <div class="terminal-shell" data-cli-terminal>
+    <div class="terminal-header">
+      <span>dre-cli</span>
+      <div class="header-actions">
+        <span>syntax mode</span>
+        <button
+          class="theme-toggle"
+          type="button"
+          data-cli-theme-toggle
+          aria-label="Toggle theme"
+        >
+          <span class="theme-toggle-label" data-cli-theme-label>dark mode</span>
+        </button>
+      </div>
+    </div>
+    <div class="terminal-body">
+      <Prompt cursor={true}>
+        <span class="typewriter" data-cli-typewriter data-text={intro}></span>
+      </Prompt>
+      <Prompt>
+        <span>available commands</span>
+      </Prompt>
+      <ul class="command-list" data-cli-command-list>
+        {commands.map((command) => (
+          <li key={command.id}>
+            <button
+              type="button"
+              class="command-button"
+              data-cli-command={command.id}
+            >
+              {command.label}
+            </button>
+          </li>
+        ))}
+      </ul>
+      <div class="outputs" data-cli-output-container>
+        {commands.map((command) => (
+          <Output id={command.id}>
+            <command.component />
+          </Output>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+<script type="module" is:inline>
+  import initCLI from '/src/lib/cli.js';
+  initCLI({ defaultCommand: 'about' });
+</script>

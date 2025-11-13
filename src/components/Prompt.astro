@@ -1,0 +1,9 @@
+---
+const { cursor = false } = Astro.props;
+const prefix = 'dre@portfolio:~$';
+---
+<div class="prompt-line">
+  <span class="prompt-prefix">{prefix}</span>
+  <span class="prompt-command"><slot /></span>
+  {cursor && <span class="prompt-cursor" data-cli-cursor></span>}
+</div>

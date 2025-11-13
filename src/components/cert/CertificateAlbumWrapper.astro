@@ -1,0 +1,6 @@
+---
+import CertificateAlbum from './CertificateAlbum.jsx'
+const { certificates } = Astro.props
+---
+
+<CertificateAlbum certificates={certificates} client:visible />
